@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+/*===== VARIABLES CSS =====*/
+
+:root {
+    --h1-fs: 2rem;    --h1-fs-media: 3rem; 
+    --h2-fs: 1.5rem;  --h2-fs-media: 2rem;
+    --h3-fs: 1.3rem;  --h3-fs-media: 1.8rem;
+    --h4-fs: 1.1rem;  --h4-fs-media: 1.5rem;
+    --p-fs: .8rem;    --p-fs-media: 1.1rem;
+    --a-fs: .7rem;    --a-fs-media: 1.1rem;
+    --li-fs: .7rem;   --li-fs-media: 1.1rem;    
+
+    --clr-bg-main: #2b4170;
+    --clr-bg-pri: #3b5c9e;
+    --clr-bg-sec: #243a69;
+    --clr-acc-vbad: #ff4530;
+    --clr-acc-bad: #fd9f01;
+    --clr-acc-neu: #ffcc01;
+    --clr-acc-good: #a4e100;
+    --clr-acc-exc: #4ec400;
+    --clr-acc-fif: #2c4071;
+    --clr-text-main: #96accb;
+    --clr-text-pri: #36454F;  
+    
+    --shadow-color: #33cbb8;    
+    --main-ff: 'Poppins', sans-serif;
+  }
+
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-ff);
+    font-size: var(--p-fs);
+    background: var(--clr-bg-main);
+    color: var(--clr-text-main);
+    width: 100%;
+    min-height: 100vh;
+}   
+
+h1, h2, h3, h4,
+p, a, li {
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--h1-fs);
+}
+
+h2 {
+    font-size: var(--h2-fs);
+}
+
+h3 {
+    font-size: var(--h3-fs);
+}
+
+h4 {
+    font-size: var(--h4-fs);
+}
+
+p, a, li {
+    font-size: var(--p-fs);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-text-main);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+    /* animation: scaleUp 1s ease-in-out;
+    transform-origin: center center; */
+
+/*===== BUTTONS =====*/
+.btns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--clr-text-main);
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    border: 2px solid var(--clr-bg-pri);
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.btn:first-of-type {
+    grid-column: 1 / 2;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn:first-of-type:after, .btn:last-of-type:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--clr-bg-pri);
+    transition: .2s;
+    z-index: -1;
+    transform: translateX(100%);
+}
+
+.btn:last-of-type:after {
+    transform: translateX(-100%);
+}
+
+.btn:first-of-type:hover::after, .btn:last-of-type:hover::after {
+    transform: translateX(0);
+}
+
+.btn:last-of-type {
+    grid-column: 2 / 4;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+  
+/* .btn:hover {
+   background-color: var(--clr-bg-pri);
+} */
+
+.btn:active {
+    scale: .97;
+}
+
+/*===== PROJECT CSS =====*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    animation: scaleUp 1s ease-in-out;
+    transform-origin: center center;
+    box-shadow: 0px 8px 30px -10px var(--clr-acc-sec);
+}
+
+.wrapper {
+    background-color: var(--clr-bg-sec);
+    margin: 1rem auto;
+    padding: 1.5rem;
+}
+.container span {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.container span:hover {
+    scale: 1.2;
+    user-select: none;
+}
+.wrapper h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 0 0.5rem 0;
+}
+.text {
+    text-align: center;
+    margin: 0.3rem 0;
+    font-size: 0.7rem;
+    padding-bottom: 0.5rem;
+}
+.emoji {
+    margin: 1rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+.emoji div {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;   
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: .5rem;
+}
+.emoji div:hover {
+    scale: 1.07;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
+}
+.emoji img {
+    width: 50%;
+    height: 50%;
+    padding: 0.3rem;
+}
+.wrapper .value {
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper h2 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0.5rem 0;
+}
+.container textarea {
+    font-size: 0.8rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid lightgray;
+    resize: none;
+}
+
+.emoji div.active {
+    box-shadow: 0 0 0 1px #227293;
+    background-color: var(--clr-acc-fif);
+}
+
+.terrible svg { color: var(--clr-acc-vbad);}
+.bad svg { color: var(--clr-acc-bad);}
+.okay svg { color: var(--clr-acc-neu);}
+.good svg { color: var(--clr-acc-good);}
+.amazing svg { color: var(--clr-acc-exc);}
